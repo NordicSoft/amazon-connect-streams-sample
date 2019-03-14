@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>Amazon Connect Streams Sample</h2>
+    <div id="agentGreetingDiv" style="padding: 5px;">
+        <!-- say hi to the agent -->
+    </div>
+    <div id="agentStatusDiv" style="padding: 5px;">
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div id="containerDiv" style="width: 320px; min-width: 200px; height: 465px; min-height: 400px;">
+            <!--Amazon CCP is hiding in here-->
+        </div>
+        <form id="start-call-form" class="form-horizontal" action="/Home/InitOutboundCall" method="post">
+            <div class="form-group">
+                <label class="control-label">contac flow</label>
+                <select id="contact-flow-id" class="form-control">
+                    <!--Select desired contact flow from your existing ones-->
+                    
+                    <!--take value from url at some contact flow 1 https://AmazonConnectInstanceName.awsapps.com/connect/contact-flows/...../contact-flow/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-->
+                    <option value="12345678-1234-1234-1234-123456789123">Some contact flow 1</option>
+                    
+                    <!-- And so on-->
+                    <option value="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">Some contact flow 2</option>
+                    <option value="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">Some contact flow 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">number for API call</label>
+                <input class="form-control" name="number" type="tel">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Source Phone Number</label>
+                <select id="source-number" class="form-control">
+                    <option value="+1502xxxxxxx">+1502</option>
+                    <option value="+1609xxxxxxx">+1609</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input class="btn" type="submit" id="start-call" value="Call">
+                <input class="btn" type="button" id="stop-call" value="Cancel">
+            </div>
+            <div class="form-group">
+                <label class="control-label">number with CCP</label>
+                <input class="form-control" name="number-ccp" type="tel">
+            </div>
+            <div class="form-group">
+                <input class="btn" type="submit" id="start-ccp-call" value="Call">
+                @*<input class="btn" type="button" id="stop-ccp-call" value="Cancel">*@
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <div id="logMsgsContainer">
+            <h2>Log Messages</h2>
+            <div id="logMsgs" style="height: 465px; overflow: auto;">
+                <!-- log messages will go here -->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div id="eventMsgsContainer">
+            <h2>Event Messages</h2>
+            <div id="eventMsgs" style="height: 465px; overflow: auto;">
+                <!-- events from Streams API will go here-->
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,7 +11,9 @@ Once the call is over, KinesisStreamProcessor fetches all info related to this c
 After that, it sends the aggregated, filtered information to the web application.
 
 This process is represented at sequence diagram below.
+
 ![Sequence Diagram](./docs/SequenceDiagram.png "Sequence Diagram")
 
-If you did everything right and pasted your credentials to the appropriate places, this app should look like
+If you did everything right and pasted your credentials to the appropriate places, this app should look like:
+
 ![Screenshot](./docs/screenshot.png "Screenshot")
